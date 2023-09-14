@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practica 05</title>
+    <style>
+        img{
+            box-shadow: 5px 10px 10px red;
+            
+        }
+
+        figure{
+            text-align: center;
+            display: inline-block;
+            width: 300px;
+        }
+        img.redonda{
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- breve explicación -->
+    <!-- 
+        Los elementos  "in line" como lo son las imagenes y el texto se pueden volver elementos 
+        distintos, dejar de ser in-line
+        ctrl+} comenta un segmento de codigo subrayado
+        el "`" sirve para insertar codigo html en etiquetas
+
+
+        API DOM (Document Object Model)
+        JSON (JavaScript Object Notation)
+            {}
+     -->
+    <h1> Random picture</h1>
+    <!-- https://picsum.photos/id/1/200/200 -->
+    <div id="app">
+        
+    </div>
+
+
+    <script>
+        const app = document.getElementById("app");
+        const url = "https://picsum.photos/id/"
+        const size = "/200/200"
+        const Picture = (parametro) =>{
+            const src = url+parametro.id+size
+            return `
+            <figure>
+                <img src="${src}" alt="">
+                <figcaption>${parametro.nombre}</figcaption>
+            </figure>
+            `
+        }
+        // se envia un JSON en esta actividad
+        app.innerHTML = Picture({id:1, nombre:"Jhon"})
+        app.innerHTML += Picture({id:2, nombre:"Jane"})
+        app.innerHTML += Picture({id:2, nombre:"Jane"})
+
+        const lista = document.querySelectorAll("img")
+        for (let i = 0; i < lista.length; i++) {
+            lista[i].addEventListener("click", ()=>{
+                //lista[i].style.borderRadius = "50%"
+                lista[i].classList.toggle("redonda")
+            });
+            
+        }
+    </script>
+    
+    <!-- <p> lorem </p> da un texto aleatorio, con "xN" n es numero que representa la extención -->
+</body>
+
+
+</html>
