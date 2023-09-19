@@ -1,0 +1,113 @@
+1.- A traves de un formulario  indicar cual imagen quiere cargar, de la practica 5
+2.- trnga un contenedor donde pueda ir salvando las imagenes(moverlas)
+3.- atraves del mismo formulario puedas indicar 1, 2, 3 que deseao cargar esas imagenes(en el mismo campo de texto)
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica06</title>
+    <style>
+        edita todo
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Times New Roman', Times, serif;
+        }
+        h1{
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        form{
+            box-shadow: 10px 20px 15px;
+            width: 300px;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        input{
+            width: 90%;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid lightgray;
+        }
+        input[type="submit"]{
+            color: white;
+            background-color: blue;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        label{
+            display: block;
+        }
+        img{
+            box-shadow: 5px 10px 10px red;
+            
+        }
+
+        figure{
+            text-align: center;
+            display: inline-block;
+            width: 300px;
+        }
+        img.redonda{
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inicio de seción</h1>
+    <form action="" id="formulario">
+        <label for="numero">Numero de imagen:</label>
+        <input type="text" id="numero" name="numero">
+        <input type="submit" value="Buscar" class="b">
+    </form>
+
+    <div id="app">
+        
+    </div>
+
+    <script>
+        const loginform = document.getElementById("formulario")
+        loginform.addEventListener("submit", event =>{
+            //alert(event)   /=> es una alerta emergente
+            event.preventDefault()
+            //console.log(event) /=> muestra en consola
+            let num = document.getElementById("numero").value
+            //alert("Usuario: "+u+" Contraseña: "+p)
+            app.innerHTML = Picture({id:num})
+        })
+
+        const app = document.getElementById("app");
+        const url = "https://picsum.photos/id/"
+        const size = "/200/200"
+        const Picture = (parametro) =>{
+            const src = url+parametro.id+size
+            return `
+            <figure>
+                <img src="${src}" alt="">
+            </figure>
+            `
+        }
+        // se envia un JSON en esta actividad
+        
+
+
+        const lista = document.querySelectorAll("img")
+        for (let i = 0; i < lista.length; i++) {
+            lista[i].addEventListener("click", ()=>{
+                //lista[i].style.borderRadius = "50%"
+                lista[i].classList.toggle("redonda")
+            });
+            
+        }
+    </script>
+</body>
+</html>
