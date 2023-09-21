@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+h1{
+    text-align: center;
+    padding-bottom: 20px;
+}
+form{
+    box-shadow: 10px 20px 15px;
+    width: 400px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 20px;  
+}
+.formulario{
+    border: 1px solid lightgray;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+input{
+    width: 90%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid lightgray;
+}
+input[type="submit"]{
+    color: white;
+    background-color: blue;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+label{
+    display: block;
+}
